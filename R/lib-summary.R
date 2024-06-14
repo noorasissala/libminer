@@ -38,7 +38,7 @@ lib_summary <- function(sizes = FALSE) {
 #'
 #' @return a data frame with a lib_size column
 calculate_sizes <- function(df) {
-  df$lib_size <- map_dbl(
+  df$lib_size <- purrr::map_dbl(
     df$Library,
     ~ sum(fs::file_size(fs::dir_ls(.x, recurse = TRUE)))
   )
